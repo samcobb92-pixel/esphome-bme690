@@ -50,8 +50,3 @@ async def to_code(config):
     cg.add(var.set_pressure_oversampling(config[CONF_PRESSURE_OVERSAMPLING]))
     cg.add(var.set_humidity_oversampling(config[CONF_HUMIDITY_OVERSAMPLING]))
     cg.add(var.set_iir_filter(config[CONF_IIR_FILTER_COEFFICIENT]))
-    
-    # Add the BME69x API source files to the build
-    # These files should be in the same directory as this __init__.py
-    cg.add_build_flag('-I' + str(cg.relative_src_path('components/bme690')))
-    cg.add_library_file('bme69x.c')
